@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<body>
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Exercicios html</title>
+    </head>
+    <h1> Ola mundo</h1>
+    <nav>
+        <a href="exercicios2/pasta.html"> temp 1</a> |
+        <a href="exercicios2/texto.html"> temp 2</a>
+        <a href="exercicios2/texto2.html"> temp 3</a>
+        <a href="exercicios2/lista.html"> temp 4</a>
+        <a href="exercicios2/lista alinhada.html"> Lista alinhada</a>
+        <a href="exercicios2/link.html">link html</a>
+        <a href="exercicios2/tabela.html">tabela html</a>
+
+    </nav>
+    <section id="conteudo"></section>
+    <footer>
+        <style>
+            #conteudo {
+                padding: 30px 0px;
+            }
+        </style>
+        1 Curso
+    </footer>
+    <script>
+        document.querySelectorAll('a').forEach(link => {
+            link.onclick = function (e) {
+                console.log("Clicou no link");
+                e.preventDefault();
+
+                const conteudo = document.getElementById('conteudo');
+                fetch(link.getAttribute('href'))
+                    .then(resp => resp.text())
+                    .then(html => {
+                        console.log("Conteúdo recebido:", html);
+                        conteudo.innerHTML = html;
+                        console.log("Conteúdo adicionado à seção");
+                    })
+                    .catch(error => console.error("Erro ao carregar conteúdo:", error));
+            }
+        });
+    </script>
+</body>
+
+</html>
