@@ -1,4 +1,55 @@
 <table>
-
     <caption> Produtos</caption>
+    <thead>
+        <tr>
+            <th> produto1 </th>
+            <th> preço </th>
+            <th> quantidade</th>
+            <th> total</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td> iphone15</td>
+            <td> 9345,80</td>
+            <td> 5</td>
+            <td> 46729.00</td>
+        </tr>
+        <tr>
+            <td>samsungs20</td>
+            <td>2000</td>
+            <td>3</td>
+            <td>6000</td>
+        </tr>
+    </tbody>
+    <tfoot>
+        <tr>
+            <td colspan="3">total</td>
+            <td>52729,00</td>
+        </tr>
+    </tfoot>
 </table>
+<style>
+    table {
+        border-collapse: collapse;
+    }
+
+    th,
+    td {
+        padding: 10px;
+    }
+
+    thead tr {
+        border-bottom: solid 3px #381616;
+
+    }
+
+    tbody tr:hover {
+        background-color: rgb(235, 232, 228);
+    }
+    tfoot {
+        background-color:rgb(34, 226, 34);
+        color: bisque;
+        font-weight: bold;
+    }
+</style>
