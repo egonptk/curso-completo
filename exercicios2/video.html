@@ -1,0 +1,55 @@
+<video id="video1" height="350" width="500" wm-progresso="video1" class="progresso">
+    <source src="videos/video1.mp4">
+</video>
+
+<div wm-progresso="video1" class="progresso">
+
+    <div></div>
+    <div>
+        <button wm-play="video1">play</button>
+        <button wm-pause="video1">pause</button>
+     
+    </div>
+
+    <style>
+        .progresso>div {
+            height: 350px;
+            width: 500px;
+            border: solid 1px #140909;
+            /* corrigido '1cap' para '1px' */
+            margin: 20px;
+        }
+
+        .progresso>div {
+            background-color: red;
+            color: #fff;
+            height: 7%;
+            text-align: left;
+            font-size: 18px;
+            width: 35%;
+        }
+    </style>
+
+    <script>
+        function configurarVideo(id) {
+            const video = document.getElementById(id);
+
+            document.querySelector(`[wm-play="${id}"]`).onclick = e => video.play(); /* corrigido wm-play=${id} para [wm-play="${id}"] */
+            document.querySelector(`[wm-pause="${id}"]`).onclick = e => video.pause(); /* corrigido wm-pause=${id} para [wm-pause="${id}"] */
+
+            setInterval(() => {
+                const percentual = (video.currentTime / video.duration) * 100;
+                const valordiv = document.querySelector(`[wm-progresso="${id}"] > div`); // Correção na interpolação da string e seletor
+                valordiv.style.width = `${percentual}%`; // Correção na propriedade style
+                valordiv.innerHTML = `${percentual.toFixed(1)}%`; // Correção na interpolação da string
+            }, 1000); // Define o intervalo para atualizar a cada segundo (1000 milissegundos)
+
+        };
+
+
+
+
+
+
+        configurarVideo('video1');
+    </script>

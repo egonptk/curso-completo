@@ -1,0 +1,39 @@
+<div wm-slider>
+  <p>
+    <img src="imagem/imagem.jpg.webp" alt="imagem1" style:="height"="300" width="300">
+  </p>
+
+  <p>
+    <img src="imagem/imagem.gif.gif" alt="imagem2" style:="width"="300" height="300">
+  </p>
+
+  <p>
+    <img src="imagem/imagem3.png.webp" alt="lugar" style:="height"="300">
+  </p>
+</div>
+
+<script>
+  function mover(elem, inicio, fim, passo, callback) {
+    const novoInicio = inicio - passo;
+    if (novoInicio >= fim) {
+      elem.style.left = novoInicio + 'px';
+      setTimeout(() => {
+        mover(elem, novoInicio, fim, passo, callback);
+      }, 7);
+    } else {
+      callback();
+    }
+  }
+
+  function slider() {
+    const elementos = document.querySelectorAll('[wm-slider]> p')
+    const slider = Array.from(elementos)
+  }
+  function exibirslide(slides, slide) {
+    slide.style.display = 'block'
+    const inicio = innerHeight
+    const fim = slide.clientwidth
+    slide.style.left = '${inicio}px'
+  }
+
+</script>
